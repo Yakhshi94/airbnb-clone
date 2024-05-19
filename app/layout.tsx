@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from 'next/font/google';
 import "./globals.css";
 import { Navbar } from '@/app/components/navbar/Navbar';
-import { Modal } from "./components/models/Modal";
+import { RegisterModal } from "./components/models/RegisterModal";
 
 
 const nunito = Nunito({
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <Modal title="Hello World" isOpen actionLabel="My Button" />
+        <RegisterModal />
         <Navbar />
         {children}
       </body>

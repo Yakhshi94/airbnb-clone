@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
-import { BiCrosshair } from "react-icons/bi";
+
 
 interface ModalProps {
     isOpen?: boolean;
