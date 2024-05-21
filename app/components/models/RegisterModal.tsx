@@ -10,6 +10,9 @@ import { useRegisterModal } from '@/app/hooks/useRegisterModal';
 import { Modal } from './Modal';
 import { Heading } from '../Heading';
 import { Input } from '../inputs/Input';
+import { toast } from 'react-hot-toast';
+import Button from '../Button';
+import { FaFacebook } from 'react-icons/fa';
 
 export const RegisterModal = () => {
     const registerModal = useRegisterModal();
@@ -37,7 +40,7 @@ export const RegisterModal = () => {
             registerModal.onClose();
         })
         .catch((error) => {
-            console.log(error);
+            toast.error('Registeration Failed');
         })
         .finally(() => {
             setLoading(false);
@@ -79,6 +82,22 @@ export const RegisterModal = () => {
         </div>
     )
 
+    const footerContent = (
+        <div className='flex flex-col gap-2 mt-4'>
+            <Button  
+                outline
+                label='Log in with google'
+                disabled={isLoading}
+                icon={FcGoogle}
+            />
+                <Button  
+                outline
+                label='Log in with Facebook'
+                disabled={isLoading}
+                icon={FaFacebook}
+            />
+        </div>
+    )
 
   return (
     <Modal 
@@ -89,6 +108,7 @@ export const RegisterModal = () => {
         onClose={registerModal.onClose}
         onSubmit={handleSubmit(onSubmit)}
         body={bodyContent}
+        footer={footerContent}
     />
   )
 }
