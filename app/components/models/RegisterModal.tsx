@@ -34,13 +34,14 @@ export const RegisterModal = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setLoading(true);
-
+        
         axios.post('/api/register', data)
         .then(() => {
             registerModal.onClose();
         })
         .catch((error) => {
             toast.error('Registeration Failed');
+            console.log(error)
         })
         .finally(() => {
             setLoading(false);
