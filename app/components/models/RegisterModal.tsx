@@ -86,16 +86,24 @@ export const RegisterModal = () => {
         <div className='flex flex-col gap-2 mt-4'>
             <Button  
                 outline
-                label='Log in with google'
+                label='Continue with Google'
                 disabled={isLoading}
                 icon={FcGoogle}
             />
                 <Button  
                 outline
-                label='Log in with Facebook'
+                label='Continue with Facebook'
                 disabled={isLoading}
                 icon={FaFacebook}
             />
+            <div className='justify-center flex flex-row items-center gap-2 mt-4 text-neutral-500 font-light'>
+                <div>
+                    Already have an account?
+                </div>
+                <div onClick={registerModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
+                    Log In
+                </div>
+            </div>
         </div>
     )
 
